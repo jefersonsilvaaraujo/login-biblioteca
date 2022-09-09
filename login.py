@@ -27,15 +27,17 @@ def Login(navegador):
     senha = navegador.find_element(By.NAME, "passwordTextBox")
     botao = navegador.find_element(By.CLASS_NAME, "cookies-policy-accept-button")
     botao.click()
-    usuario.send_keys("SEU LOGIN")
-    senha.send_keys("SUA SENHA")
+    usuario.send_keys("1400206163")
+    senha.send_keys("Aluno@esup")
     time.sleep(3)
 
                         #Localizar o botão de enviar e executar
     
 def Entrar(navegador):
-    logar= navegador.find_element(By.XPATH, "//*[@type='submit']")
-    logar.submit()                       
+    #logar= navegador.find_element(By.NAME, "loginButton")
+    logar= navegador.find_element(By.XPATH, "//*[@type='submit']").click()
+    #logar.submit()
+    #logar.click()
     
 Navevagor= AcessarSite()
 Login(Navevagor)
