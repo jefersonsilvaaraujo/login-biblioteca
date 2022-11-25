@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
   const page = await browser.newPage();
   //Acessa a pagina de login da biblioteca
   await page.goto('https://dliportal.zbra.com.br/Login.aspx?key=ESUP');
-
+  
   //Clica no botao para aceitar todos os cookies
   await page.click('[class="cookies-policy-accept-button"]');
 
@@ -15,4 +15,5 @@ const puppeteer = require('puppeteer');
 
   //Clica no botao de login
   await page.click('[name="loginButton"]');
+
 })();
