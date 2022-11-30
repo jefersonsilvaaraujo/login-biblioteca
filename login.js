@@ -1,6 +1,9 @@
+const express = require('express');
 const puppeteer = require('puppeteer');
 
-(async () => {
+const server = express();
+
+server.get('/', async (request, response) => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   //Acessa a pagina de login da biblioteca
@@ -15,5 +18,9 @@ const puppeteer = require('puppeteer');
 
   //Clica no botao de login
   await page.click('[name="loginButton"]');
+});
 
-})();
+const port = 3000;
+server.listen(port, () => {
+  console.log('Servidor online.');
+});
