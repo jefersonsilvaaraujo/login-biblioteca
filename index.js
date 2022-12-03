@@ -23,7 +23,7 @@ server.get('/', async (request, response) => {
 
   //Clica no botao de login
   await page.click('[name="loginButton"]');
-  const html = await page.content();
+  const html = await page.
   await browser.close();
 
   response.send(html);
