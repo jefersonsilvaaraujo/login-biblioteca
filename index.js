@@ -6,6 +6,11 @@ const server = express();
 server.get('/', async (request, response) => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
+  //seta o tamanho da tela
+  await page.setViewport({
+    width: 1920,
+    height: 1080
+  });
   //Acessa a pagina de login da biblioteca
   await page.goto('https://dliportal.zbra.com.br/Login.aspx?key=ESUP');
   
@@ -18,6 +23,10 @@ server.get('/', async (request, response) => {
 
   //Clica no botao de login
   await page.click('[name="loginButton"]');
+  const html = await page.content();
+  await browser.close();
+
+  response.send(html);
 });
 
 const port = 3000;
